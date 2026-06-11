@@ -1,0 +1,199 @@
+/* AJUSTES ADICIONALES PARA EL CONTENEDOR DE ESTA PÁGINA */
+.join-main-container {
+    max-width: 1000px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+/* CONTENEDOR INTERNO */
+.join-container {
+    width: 100%;
+    animation: fadeInJoin 0.5s ease;
+}
+
+/* ENCABEZADO DE LA PÁGINA (Arreglado para evitar movimientos flotantes molestos) */
+.join-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: static !important;
+}
+.join-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.join-header .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* SECCIONES DE ROLES */
+.role-section {
+    margin-bottom: 50px;
+}
+.role-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+/* Estilo del icono para el rol de Miembro */
+.role-title i {
+    color: #3b82f6;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+}
+/* Estilo del icono para el rol de Creador */
+.role-title.creator-title i {
+    color: var(--emerald-glow);
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+}
+
+/* REJILLA DE BENEFICIOS */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* TARJETAS DE BENEFICIOS */
+.benefit-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 30px 24px;
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor del Icono Redondo */
+.icon-wrapper {
+    width: 55px;
+    height: 55px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    transition: var(--transition);
+}
+.benefit-card:hover .icon-wrapper {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-color: #3b82f6;
+}
+.icon-wrapper i {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+.benefit-card:hover .icon-wrapper i {
+    color: #3b82f6;
+    filter: drop-shadow(0 0 5px #3b82f6);
+}
+
+.benefit-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.benefit-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Tarjeta Destacada de Creadores */
+.creator-card-benefit {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 185, 129, 0.02) 100%);
+    border-color: rgba(16, 185, 129, 0.15);
+}
+.creator-card-benefit:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+.creator-card-benefit .icon-wrapper {
+    background-color: var(--emerald-soft);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+.creator-card-benefit .icon-wrapper i {
+    color: var(--emerald-glow);
+}
+.creator-card-benefit:hover .icon-wrapper {
+    background-color: var(--emerald-soft);
+    border-color: var(--emerald-glow);
+}
+.creator-card-benefit:hover .icon-wrapper i {
+    color: var(--emerald-glow);
+    filter: drop-shadow(0 0 5px var(--emerald-glow));
+}
+
+/* ÁREA DE ACCIÓN (BOTÓN CENTRAL) */
+.join-action-area {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+}
+.join-action-area p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Botón Elegante Premium */
+.btn-primary-elegant {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--emerald-glow);
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+}
+.btn-primary-elegant:hover {
+    transform: translateY(-2px);
+    background-color: var(--emerald-dark);
+    color: #ffffff;
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeInJoin {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVO */
+@media (max-width: 650px) {
+    .join-header h1 { font-size: 2.1rem; }
+    .join-main-container { margin-top: 40px; margin-bottom: 40px; }
+    .join-action-area { padding: 30px 20px; }
+    .btn-primary-elegant { width: 100%; justify-content: center; }
+}

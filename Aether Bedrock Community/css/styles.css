@@ -1,0 +1,412 @@
+/* VARIABLES DE DISEÑO PREMIUM */
+:root {
+    --bg-darken: #0a0c10;
+    --bg-main: #0f111a;
+    --bg-card: #181c28;
+    --bg-input: #121520;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --emerald-glow: #10b981;
+    --emerald-dark: #059669;
+    --emerald-soft: rgba(16, 185, 129, 0.1);
+    
+    --border-color: #242b3d;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 10px auto 80px auto;
+    padding: 0 24px;
+}
+
+/* BARRA DE NAVEGACIÓN (HEADER) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    background-color: rgba(10, 12, 16, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo i, .logo span { color: var(--emerald-glow); }
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary);
+}
+
+/* Botón especial "Únete" en Nav */
+.btn-join {
+    background-color: var(--emerald-glow) !important;
+    color: white !important;
+    padding: 8px 18px !important;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    transition: var(--transition);
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+.btn-join:hover {
+    background-color: var(--emerald-dark) !important;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+/* PIE DE PÁGINA (FOOTER) */
+footer {
+    background-color: var(--bg-darken);
+    border-top: 1px solid var(--border-color);
+    padding: 40px 20px;
+    margin-top: auto; /* Fuerza al footer a quedarse abajo en páginas cortas */
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+}
+.footer-logo i, .footer-logo span { color: var(--emerald-glow); }
+
+footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.footer-quote {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 5px auto 15px auto;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+.footer-socials a {
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+.footer-socials a:hover {
+    color: var(--emerald-glow);
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 8px var(--emerald-glow));
+}
+
+/* Redes Sociales Personalizadas */
+.footer-socials a[title="Discord"]:hover {
+    color: #5865F2 !important;
+    filter: drop-shadow(0 0 10px rgba(88, 101, 242, 0.6));
+}
+.footer-socials a[title="Instagram"]:hover {
+    color: #e1306c !important;
+    filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.6));
+}
+.footer-socials .x-link {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+.footer-socials .x-link:hover {
+    color: #ffffff;
+    filter: drop-shadow(0 0 8px #ffffff);
+}
+
+.footer-copyright {
+    font-size: 0.85rem !important;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.footer-disclaimer {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    max-width: 550px;
+    line-height: 1.4;
+    margin-top: 5px;
+}
+
+/* RESPONSIVO COMÚN HEADER */
+@media (max-width: 850px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+}
+
+/* ==========================================================================
+   ESTILOS GENERALES DEL MODAL (COMPARTIDOS PARA TODA LA WEB)
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Desenfoque elegante de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    animation: fadeInModal 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Botón de cerrar (X) */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.close-modal:hover {
+    color: #ffffff;
+}
+
+.modal-content h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.modal-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* Formularios dentro del modal */
+.modal .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.modal .input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal .input-group input {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.modal .input-group input:focus {
+    outline: none;
+    border-color: var(--emerald-glow);
+    box-shadow: 0 0 0 1px var(--emerald-glow);
+}
+
+/* Botón de Enviar dentro del Modal */
+.btn-submit {
+    width: 100%;
+    background-color: var(--emerald-glow);
+    color: #000000;
+    border: none;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--emerald-dark);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-submit:disabled {
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Texto inferior para alternar entre Login y Registro */
+.toggle-auth-text {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 24px;
+}
+
+.toggle-auth-text a {
+    color: var(--emerald-glow);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.toggle-auth-text a:hover {
+    text-decoration: underline;
+}
+
+/* Animación */
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 480px) {
+    .modal-content { padding: 30px 20px; width: 90%; }
+}
+
+/* Customización del botón de subir avatar en el Registro */
+.avatar-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Ocultamos el input feo por defecto */
+.input-file-hidden {
+    display: none !important;
+}
+
+/* Creamos un botón falso elegante e interactivo */
+.custom-file-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(16, 185, 129, 0.3);
+    color: var(--text-muted, #94a3b8);
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-file-upload i {
+    color: #10b981; /* Verde esmeralda de Aethel */
+    font-size: 1.1rem;
+}
+
+.custom-file-upload:hover {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: #10b981;
+    color: #f8fafc;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.1);
+}
+
+/* Pequeño texto indicador del archivo seleccionado */
+.file-chosen-text {
+    font-size: 0.8rem;
+    color: #10b981;
+    margin-top: 2px;
+    font-weight: 600;
+    display: none; /* Se mostrará dinámicamente con JS */
+}
