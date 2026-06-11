@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aethel Bedrock | Perfil</title>
+    
+    <!-- Fuentes e Iconos Oficiales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Estilos de la Tarjeta de Perfil Evolucionada -->
+    <style>
+        :root {
+            --bg-dark-profile: #0b0f19;
+            --bg-card-profile: #131c2e;
+            --emerald-glow: #10b981;
+            --emerald-hover: #059669;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(16, 185, 129, 0.2);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .profile-main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 85vh;
+            padding: 40px 20px;
+            background: radial-gradient(circle at top, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, #131c2e, #0e1624);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.03);
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+
+        /* 🌆 Banner Premium Tecnificado y Moderno por Rol */
+        .profile-banner {
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+            background-color: #0b111e;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Textura común de micro-rejilla tecnológica (Efecto fibra de carbono/puntos) */
+        .profile-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px), 
+                radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 12px 12px;
+            background-position: 0 0, 6px 6px;
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        /* Banner Comunidad: Estilo Cyber-Blue con cortes angulares */
+        .banner-comunidad {
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.4) 0%, transparent 60%),
+                linear-gradient(135deg, #1e3a8a 0%, #0f172a 40%, #2563eb 41%, #0b0f19 80%);
+        }
+
+        /* Banner Creador: Estilo Emerald Matrix con destellos cruzados */
+        .banner-creador {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.35) 0%, transparent 60%),
+                linear-gradient(135deg, #022c22 0%, #064e3b 35%, #10b981 36%, #090d16 75%, #047857 100%);
+        }
+
+        /* Banner Moderador: Estilo Overdrive Red industrial */
+        .banner-moderador {
+            background-image: 
+                radial-gradient(circle at 50% -20%, rgba(239, 68, 68, 0.4) 0%, transparent 70%),
+                linear-gradient(45deg, #450a0a 0%, #111827 45%, #ef4444 46%, #7f1d1d 55%, #0b0f19 90%);
+        }
+
+        /* Difuminado suave e iluminación inferior hacia la tarjeta */
+        .profile-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background: linear-gradient(to top, #131c2e 15%, rgba(19, 28, 46, 0.8) 40%, transparent 100%);
+            z-index: 2;
+        }
+
+        /* Efecto Dinámico: Al pasar el cursor por la tarjeta, el patrón brilla e incrementa el contraste */
+        .profile-card:hover .profile-banner {
+            filter: brightness(1.25);
+            background-size: 110% 110%;
+        }
+
+        /* Contenido de la tarjeta */
+        .profile-content {
+            padding: 0 30px 35px 30px;
+            text-align: center;
+            position: relative;
+            margin-top: -65px; 
+            z-index: 2;
+        }
+
+        /* Contenedor del Avatar Flotante */
+        .profile-avatar-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px auto;
+        }
+
+        .profile-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #131c2e;
+            box-shadow: 0 0 0 3px var(--emerald-glow), 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: #1a2436;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+            box-sizing: border-box;
+            aspect-ratio: 1 / 1; 
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 🔄 EFECTO RESTAURADO: Giro de 360° y escala premium al pasar sobre la tarjeta */
+        .profile-card:hover .profile-avatar {
+            transform: scale(1.03) rotate(360deg);
+        }
+
+        .avatar-edit-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            background: var(--emerald-glow);
+            color: #0b0f19;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 3px solid #131c2e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s var(--transition-smooth);
+            z-index: 10;
+        }
+
+        .avatar-edit-badge:hover {
+            background: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .profile-name {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .profile-role-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 16px;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+        
+        .role-comunidad { background: rgba(59, 130, 246, 0.08); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); }
+        .role-creador { background: rgba(16, 185, 129, 0.08); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
+        .role-moderador { background: rgba(239, 68, 68, 0.08); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); }
+
+        /* 🎛️ Sistema de Pestañas (Tabs) */
+        .profile-tabs-nav {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 22px;
+            gap: 5px;
+        }
+
+        .tab-button {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 12px 10px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tab-button:hover { color: var(--text-main); }
+        .tab-button.active { color: var(--emerald-glow); }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--emerald-glow);
+            box-shadow: 0 0 8px var(--emerald-glow);
+        }
+
+        /* Paneles de Contenido */
+        .tab-content-panel {
+            display: none;
+            animation: fadeInTab 0.3s var(--transition-smooth) forwards;
+            text-align: left;
+            min-height: 150px;
+        }
+
+        .tab-content-panel.active { display: block; }
+
+        @keyframes fadeInTab {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ✍️ Sección de Biografía Premium */
+        .bio-container {
+            background: rgba(11, 15, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .bio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .bio-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--emerald-glow);
+        }
+
+        .btn-bio-action {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-bio-action:hover { color: #ffffff; }
+
+        .bio-text-display {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            line-height: 1.5;
+            margin: 0;
+            font-style: italic;
+            word-break: break-word;
+        }
+
+        .bio-textarea {
+            width: 100%;
+            height: 70px;
+            background: #0b0f19;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-main);
+            padding: 10px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: none;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .bio-textarea:focus { border-color: var(--emerald-glow); }
+
+        .bio-edit-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .char-counter {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .char-counter.limit-near { color: #ef4444; }
+
+        .btn-bio-save {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--emerald-glow);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-bio-save:hover {
+            background: var(--emerald-glow);
+            color: #0b0f19;
+        }
+
+        /* Vista de Información */
+        .info-box {
+            background: rgba(11, 15, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+
+        .info-box span { display: flex; align-items: center; gap: 10px; }
+        .info-box i { color: var(--emerald-glow); width: 16px; text-align: center; }
+        .info-box span strong { color: var(--text-main); margin-left: auto; font-weight: 600; }
+
+        /* Lista de Complementos */
+        .addons-showcase-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .addons-empty-msg {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 30px 10px;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .addons-empty-msg i { font-size: 2rem; color: rgba(255,255,255,0.05); }
+
+        /* Botones / Acciones inferiores */
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-moderator-panel {
+            background: #ef4444;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-moderator-panel:hover {
+            background: #dc2626;
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-upgrade-creator {
+            background: var(--emerald-glow);
+            color: #0b0f19;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-upgrade-creator:hover {
+            background: var(--emerald-hover);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            padding: 12px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-logout:hover {
+            background: rgba(239, 68, 68, 0.04);
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Oficial -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-cube"></i> Aethel<span>Bedrock</span>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">Explorar Addons</a>
+            <a href="nosotros.html" class="nav-link">Sobre Nosotros</a>
+            <a href="normas.html" class="nav-link">Nuestras Normas</a>
+            <a href="unete.html" class="nav-link btn-join">Únete</a>
+        </nav>
+    </header>
+
+    <!-- Caja del Perfil Principal -->
+    <main class="container profile-main-container">
+        <div class="profile-card">
+            
+            <!-- 🌆 Banner Decorativo Dinámico Superior -->
+            <div class="profile-banner" id="userBanner"></div>
+            
+            <div class="profile-content">
+                <!-- Foto / Avatar -->
+                <div class="profile-avatar-wrapper">
+                    <div id="userAvatarContainer">
+                        <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+                    </div>
+                    
+                    <!-- ID añadido para poder ocultar completamente el botón de la cámara desde JS -->
+                    <label for="inputChangeAvatar" id="btnChangeAvatarLabel" class="avatar-edit-badge" title="Cambiar foto de perfil">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                    <input type="file" id="inputChangeAvatar" accept="image/*" style="display: none;" onchange="updateProfileAvatar(event)">
+                </div>
+
+                <!-- Nombre y Rol -->
+                <h1 class="profile-name" id="profileName">Cargando...</h1>
+                <div id="profileRoleBadge" class="profile-role-badge role-comunidad">
+                    <i class="fa-solid fa-user"></i> Comunidad
+                </div>
+
+                <!-- 🎛️ Navegación por Pestañas Internas -->
+                <div class="profile-tabs-nav">
+                    <button class="tab-button active" onclick="switchProfileTab('tab-info', event)">
+                        <i class="fa-solid fa-id-card"></i> Información
+                    </button>
+                    <button class="tab-button" id="tabBtnAddons" style="display: none;" onclick="switchProfileTab('tab-addons', event)">
+                        <i class="fa-solid fa-cubes"></i> Complementos
+                    </button>
+                </div>
+
+                <!-- 📄 PESTAÑA 1: PANEL DE INFORMACIÓN -->
+                <div id="tab-info" class="tab-content-panel active">
+                    
+                    <!-- ✍️ Sección de Biografía Editable -->
+                    <div class="bio-container">
+                        <div class="bio-header">
+                            <span class="bio-title"><i class="fa-solid fa-signature"></i> Sobre mí</span>
+                            <button id="btnEditBio" onclick="toggleBioEdit()" class="btn-bio-action" title="Editar biografía">
+                                <i class="fa-solid fa-pen"></i> Editar
+                            </button>
+                        </div>
+                        
+                        <p id="bioDisplay" class="bio-text-display">Cargando biografía...</p>
+                        
+                        <div id="bioEditWrapper" style="display: none; flex-direction: column; gap: 8px;">
+                            <textarea id="bioInput" class="bio-textarea" maxlength="150" placeholder="Escribe algo sobre ti... (Máx. 150 caracteres)" oninput="updateCharCount()"></textarea>
+                            <div class="bio-edit-footer">
+                                <span id="bioCharCounter" class="char-counter">150</span>
+                                <button onclick="saveBioData()" class="btn-bio-save">
+                                    <i class="fa-solid fa-floppy-disk"></i> Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Datos Técnicos -->
+                    <div class="info-box">
+                        <span><i class="fa-solid fa-calendar-days"></i> Miembro desde: <strong id="profileDate">--/--/----</strong></span>
+                        <!-- ID añadido a esta fila para ocultar el correo de forma segura en vistas públicas -->
+                        <span id="rowProfileEmail"><i class="fa-solid fa-envelope"></i> Cuenta vinculada: <strong id="profileEmail">...</strong></span>
+                    </div>
+                </div>
+
+                <!-- 📦 PESTAÑA 2: PANEL DE COMPLEMENTOS SUBIDOS (EXCLUSIVO CREADORES) -->
+                <div id="tab-addons" class="tab-content-panel">
+                    <div class="addons-showcase-list" id="creatorAddonsList">
+                        <div class="addons-empty-msg">
+                            <i class="fa-solid fa-box-open"></i>
+                            <span>No has subido ningún complemento todavía.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acciones Inferiores Privadas/Públicas -->
+                <div class="profile-actions" id="profileActionsContainer">
+                    <!-- 🛡️ Panel de Moderación exclusivo -->
+<a href="admin.html" id="btnAdminPanel" class="btn-moderator-panel">
+    <i class="fa-solid fa-shield-halved"></i> Panel de Moderación
+</a>
+
+                    <!-- Conviértete en Creador -->
+                    <a href="#" id="btnUpgradeCreator" class="btn-upgrade-creator" style="display: none;">
+                        <i class="fa-solid fa-code"></i> Conviértete en Creador
+                    </a>
+                    
+                    <button id="btnLogoutSession" onclick="logoutSession()" class="btn-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Oficial -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fa-solid fa-cube"></i> Aethel<span>Bedrock</span>
+            </div>
+            
+            <p class="footer-quote">"El código es tu lienzo, la imaginación tu único límite. Crea, comparte y trasciende."</p>
+            
+            <div class="footer-socials">
+                <a href="#" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" title="X" class="x-link">X</a>
+            </div>
+
+            <p class="footer-copyright">&copy; 2026 Aethel Bedrock. Todos los derechos reservados.</p>
+            <p class="footer-disclaimer">Este sitio web es una comunidad independiente de creadores y no está afiliado, autorizado ni respaldado por Mojang Studios o Microsoft.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Supabase y Controladores del Proyecto -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+</html>
