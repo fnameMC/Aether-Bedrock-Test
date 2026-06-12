@@ -45,7 +45,7 @@
     </section>
 
     <!-- 3. CONTENIDO PRINCIPAL (CATÁLOGO Y PESTAÑAS) -->
-    <main class="container">
+    <main class="container" id="creadores">
         
         <div class="section-header">
             <h2><i class="fa-solid fa-fire"></i> Catálogo de la Comunidad</h2>
@@ -166,7 +166,23 @@
     <script src="js/config.js"></script>
 
     <!-- Tus módulos JavaScript divididos de forma limpia -->
-    <script src="js/pestanas.js"></script>
+
+    <!-- Módulos de la página index -->
+    <script src="js/index/pestanas.js"></script>
+    <script src="js/index/pestañacreador.js"></script>
     <script src="js/login.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Si la URL contiene #creadores, activamos la pestaña automáticamente
+        if (window.location.hash === '#creadores') {
+            // Asumiendo que tu función switchTab está en pestanas.js
+            // Esto llamará a la lógica que muestra el div 'view-creadores'
+            if (typeof switchTab === 'function') {
+                switchTab('creadores');
+            }
+        }
+    });
+</script>
 </body>
 </html>

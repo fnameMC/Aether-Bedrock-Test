@@ -474,6 +474,30 @@
             border-color: #ef4444;
             color: #ef4444;
         }
+.btn-close-profile {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.btn-close-profile:hover {
+    background: #ef4444;
+    color: white;
+    transform: scale(1.1);
+}
     </style>
 </head>
 <body>
@@ -494,6 +518,10 @@
     <!-- Caja del Perfil Principal -->
     <main class="container profile-main-container">
         <div class="profile-card">
+
+<button id="btnClose" class="btn-close-profile" title="Salir">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
             
             <!-- 🌆 Banner Decorativo Dinámico Superior -->
             <div class="profile-banner" id="userBanner"></div>

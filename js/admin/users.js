@@ -102,9 +102,12 @@ const AdminUsers = {
         document.getElementById('userModal').style.display = 'none';
     },
 
-    viewProfile: function() {
-        window.location.href = `perfil.html?id=${this.selectedUser.id}`;
-    },
+viewProfile: function() {
+    if (this.selectedUser) {
+        // Al navegar al perfil, añadimos el parámetro de origen
+        window.location.href = `perfil.html?id=${this.selectedUser.id}&origin=panel`;
+    }
+},
 
     toggleRole: async function() {
         const nuevoRol = this.selectedUser.rol === 'creador' ? 'comunidad' : 'creador';
