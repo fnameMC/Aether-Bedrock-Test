@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Moderación | Aethel Bedrock</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <header class="admin-header-custom">
+        <div style="width: 80px;"></div>
+        <div class="logo"><i class="fa-solid fa-cube"></i> Aethel<span>Bedrock</span></div>
+        <a href="perfil.html" class="btn-logout">Salir</a>
+    </header>
+
+    <main class="admin-main-container">
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="AdminController.loadSection('users')">Usuarios</button>
+            <button class="tab-btn" onclick="AdminController.loadSection('addons')">Addons</button>
+            <button class="tab-btn" onclick="AdminController.loadSection('upload')">Publicar</button>
+        </div>
+
+        <section id="users-section" class="admin-content-section active">
+            <div class="admin-card">
+                <h2 style="margin-top:0;">Gestión de Usuarios</h2>
+                <input type="text" placeholder="Buscar usuario...">
+                <div id="adminUsersList"></div>
+            </div>
+        </section>
+
+        <section id="addons-section" class="admin-content-section">
+            <div class="admin-card">
+                <h2 style="margin-top:0;">Complementos Web</h2>
+                <input type="text" placeholder="Buscar addon...">
+                <div id="adminAddonsList"></div>
+            </div>
+        </section>
+
+        <section id="upload-section" class="admin-content-section">
+            <div class="admin-card">
+                <h2 style="margin-top:0;">Publicar Proyecto</h2>
+                <form id="formAdminUploadAddon">
+                    <input type="text" id="adminAddonTitle" placeholder="Nombre del Addon" required>
+                    <textarea id="adminAddonDesc" rows="4" placeholder="Detalles del addon..."></textarea>
+                    <input type="file" id="adminAddonImg" accept="image/*" style="padding:10px;">
+                    <button type="submit" class="btn-upgrade-creator">Publicar en el sitio</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+<!-- Modal de Gestión de Usuario -->
+<div id="userModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <h3 id="modalUserName">Nombre de Usuario</h3>
+        <div class="modal-actions">
+            <button onclick="AdminUsers.viewProfile()">Ver Perfil</button>
+            <button id="btnToggleRole" onclick="AdminUsers.toggleRole()">Cambiar Rol</button>
+            <button id="btnDeleteUser" onclick="AdminUsers.deleteUser()" class="btn-danger">Eliminar Usuario</button>
+            <button onclick="AdminUsers.closeModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        &copy; 2026 Aethel Bedrock. Todos los derechos reservados.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/admin/users.js"></script>
+    <script src="js/admin/controller.js"></script>
+</body>
+</html>

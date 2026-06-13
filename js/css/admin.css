@@ -1,0 +1,131 @@
+/* --- Variables de Diseño --- */
+:root {
+    --bg-dark: #0b0f19;
+    --bg-card: #131c2e;
+    --emerald-glow: #10b981;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --danger-color: #ef4444;
+}
+
+/* --- Base --- */
+body { 
+    background: var(--bg-dark); 
+    color: var(--text-main); 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* --- Header --- */
+.admin-header-custom { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 40px; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+}
+.logo { font-weight: 800; font-size: 1.5rem; color: var(--text-main); }
+.logo span { color: var(--emerald-glow); }
+
+/* --- Contenedor Principal --- */
+.admin-main-container { padding: 40px 20px; max-width: 600px; margin: 0 auto; min-height: 70vh; }
+
+/* --- Lista de Usuarios --- */
+#adminUsersList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* --- Fila de Usuario (Tarjeta) --- */
+.item-row {
+    background: var(--bg-card);
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #0b0f19;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.user-name { color: white; font-weight: 700; font-size: 0.95rem; }
+
+.role-badge { 
+    font-size: 0.75rem; 
+    color: var(--emerald-glow); 
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.user-date {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* --- Estilos de Navegación y Botones --- */
+.btn-logout {
+    background: transparent; color: var(--danger-color);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    padding: 10px 20px; border-radius: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; cursor: pointer;
+}
+.btn-logout:hover { background: rgba(239, 68, 68, 0.04); border-color: var(--danger-color); }
+
+.admin-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; }
+.tab-btn {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-muted); padding: 12px 20px; border-radius: 12px;
+    cursor: pointer; font-weight: 700; transition: all 0.3s;
+}
+.tab-btn.active { background: var(--emerald-glow); color: #0b0f19; border-color: var(--emerald-glow); }
+
+.admin-content-section { display: none; }
+.admin-content-section.active { display: block; }
+
+.admin-card {
+    background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px; padding: 30px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+input, textarea {
+    width: 100%; padding: 14px; background: #0b0f19; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; color: var(--text-main); margin-bottom: 15px; box-sizing: border-box;
+}
+
+.btn-upgrade-creator {
+    background: var(--emerald-glow); color: #0b0f19; border: none;
+    padding: 14px; width: 100%; border-radius: 12px; font-weight: 700; cursor: pointer;
+}
+
+footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem; }
+
+.modal-overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.8); display:flex; justify-content:center; align-items:center;
+}
+.modal-content {
+    background: #131c2e; padding: 25px; border-radius: 16px; width: 300px;
+    text-align: center; border: 1px solid rgba(255,255,255,0.1);
+}
+.modal-actions { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+.btn-danger { color: #ef4444; }
